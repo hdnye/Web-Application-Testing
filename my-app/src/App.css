@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+.scoreboard {
+  width: 58%;
+  margin: 10rem auto;
+  background-color: dodgerblue;
+  color: white;
+  border-radius: 0.5rem;
+  margin-top: 10rem;
+  padding: 5rem;
+  border: 4px solid #aaaaaa;
+}
+
+.strike, .ball {
+  font-family: "Ozone";
+  font-size: 1.5rem;
+  width: 90%;
+  text-align: center;
+  background-color: var(--black);
+  color: var(--red);
+  
+}

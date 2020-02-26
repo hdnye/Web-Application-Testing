@@ -1,30 +1,33 @@
 import React, { useState } from 'react';
+import { Button } from 'reactstrap';
 
-
-export function Dashboard() {
-    const [ball, setBall] = useState(0);
+const Dashboard = () => {
+        
+    
+    const [balls, setBalls] = useState(0);
     const [strikes, setStrikes] = useState(0);
     const [foul, setFoul] = useState(0);
     const [hits, setHits] = useState(0);
 
   
-    const handleStrike = () => {
-        if(strikes < 3) {
-            setStrikes(strikes + 1)
+   const handleStrike = (event) => {
+       
+        if(strikes <= 3) {
+            setStrikes({strikes: event.target.value + 1});
         }
         else {
             setStrikes(0)
-            setBall(0)
+            setBalls(0)
          }
         return handleStrike;
     };
 
     const handleBalls = () => {
-        if(ball < 4) {
-            setBall(ball + 1)
+        if(balls < 4) {
+            setBalls({balls: this.state.handleBalls + 1})
         }
         else {
-            setBall(0)
+            setBalls(0)
             setStrikes(0)
         }
         return handleBalls;
@@ -49,13 +52,17 @@ export function Dashboard() {
         }
         return handleHits; 
     }
-    
-return (
-    <div className='Dashboard'>
-        <button className='strikes' onClick={handleStrike}>Strikes</button>
-        <button className='balls' onClick={handleBalls}>Balls</button>
-        <button className='foul' onClick={handleFoul}>Foul</button>
-        <button className='hits' onClick={handleHits}>Hits</button>
-    </div>
-  );
-};
+
+  
+    return (
+        <div className='dcontainer'>
+            <Button className='strikes' onClick={handleStrike}>Strikes</Button>
+            <Button className='balls' onClick={handleBalls}>Balls</Button>
+            <Button className='foul' onClick={handleFoul}>Foul</Button>
+            <Button className='hits' onClick={handleHits}>Hits</Button>
+        </div>
+     );
+   };
+
+
+export default Dashboard;
